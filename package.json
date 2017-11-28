@@ -1,0 +1,46 @@
+{
+  "name": "zcf-cli",
+  "version": "1.0.0",
+  "description": "使用泽元开发框架脚手架创建项目的命令行工具",
+  "preferGlobal": true,
+  "bin": {
+    "zcf": "bin/zcf",
+    "zcf-init": "bin/zcf-init",
+    "zcf-list": "bin/zcf-list"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abeet/zcf-cli.git"
+  },
+  "keywords": [
+    "zcf",
+    "cli"
+  ],
+  "author": "http://www.zving.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abeet/zcf-cli/issues"
+  },
+  "homepage": "https://github.com/abeet/zcf-cli#readme",
+  "engines": {
+    "node": ">=7.0.0"
+  },
+  "dependencies": {
+    "async": "^2.1.4",
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "consolidate": "^0.14.5",
+    "download-git-repo": "^0.2.1",
+    "handlebars": "^4.0.6",
+    "inquirer": "^2.0.0",
+    "metalsmith": "^2.3.0",
+    "minimatch": "^3.0.3",
+    "multimatch": "^2.1.0",
+    "ora": "^0.4.1",
+    "os": "^0.1.1",
+    "read-metadata": "^1.0.0",
+    "rimraf": "^2.5.4",
+    "uid": "0.0.2",
+    "validate-npm-package-name": "^2.2.2"
+  }
+}

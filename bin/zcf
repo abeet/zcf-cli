@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+require('commander')
+  .version(require('../package').version)
+  .usage('<command> [options]')
+  .command('init', '从模板生成一个新项目')
+  .command('list', '列出可用的zcf工程模板')
+  .parse(process.argv)
