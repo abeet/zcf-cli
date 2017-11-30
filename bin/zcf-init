@@ -94,7 +94,7 @@ function run(template){
     generate(name, tmp, to, function (err) {
       if (err) console.error(err)
       console.log()
-      console.error('Generated "%s".', name)
+      console.error('已生成项目 "%s".', name)
     })
   })
 }
