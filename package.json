@@ -1,6 +1,6 @@
 {
   "name": "zcf-cli",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "使用泽元开发框架脚手架创建项目的命令行工具",
   "preferGlobal": true,
   "bin": {

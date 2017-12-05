@@ -22,15 +22,15 @@ Example:
 zcf init zcf-vue-admin my-project
 ```
 
-上面的命令将模板从 [zcf-templates/admin](https://github.com/zhouzhihu/admin)拉取下来, 按提示配置后, 生成项目到目录 `./my-project/`.
+上面的命令将模板从 [zcf-templates/zcf-vue-admin](https://github.com/abeet/zcf-vue-admin)拉取下来, 按提示配置后, 生成项目到目录 `./my-project/`.
 
 ### 工程模板
 
 当前可用的模板:
 
-- [zcf-vue-admin](https://github.com/abeet/zcf-vue-admin) - 适合于后台系统的首页应用工程后端框架为springboot+zving framework，前端为vue2 + Element UI.
+- [zcf-vue-admin](https://github.com/abeet/zcf-vue-admin) - 适合于后台系统的首页应用工程后端框架为 springboot+zving framework，前端为vue2 + Element UI.
 
-- [express-vue-admin](https://github.com/abeet/express-vue-admin) - 适合于后台系统的首页应用工程后端框架为express+sequelize，前端为vue2 + Element UI.
+- [koa-vue-admin](https://github.com/abeet/koa-vue-admin) - 适合于后台系统的首页应用工程后端框架为 koa+sequelize，前端为vue2 + Element UI.
 
 ### License
 

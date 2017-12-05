@@ -29,8 +29,8 @@ program.on('--help', function () {
   console.log(chalk.gray('    # 使用zcf-vue-admin（基于zcf的单页面后台管理）模板创建一个新项目'))
   console.log('    zcf init zcf-vue-admin my-project')
   console.log()
-  console.log(chalk.gray('    # 使用express-vue-admin（基于express的单页面后台管理）模板创建一个新项目'))
-  console.log('    zcf init express-vue-admin my-project')
+  console.log(chalk.gray('    # 使用koa-vue-admin（基于koa的单页面后台管理）模板创建一个新项目'))
+  console.log('    zcf init koa-vue-admin my-project')
   console.log()
 })
 

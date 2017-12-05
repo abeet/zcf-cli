@@ -1,10 +1,33 @@
 #!/usr/bin/env node
 
+const chalk = require('chalk')
+
 /**
  * Padding.
  */
 
+process.on('exit', () => {
+})
+
+/**
+ * List repos.
+ */
+const repos = [
+  {
+    name: 'zcf-vue-admin',
+    description:'基于 zcf + vue 的单页面后台管理系统脚手架的模板'
+  },
+  {
+    name: 'koa-vue-admin',
+    description:'基于 koajs + vue 的单页面后台管理系统脚手架的模板'
+  },
+]
+
+console.log('  Available official templates:')
 console.log()
-process.on('exit', function () {
-  console.log()
+repos.forEach(repo => {
+  console.log(
+    '  ' + chalk.yellow('★') +
+    '  ' + chalk.blue(repo.name) +
+    ' - ' + repo.description)
 })
