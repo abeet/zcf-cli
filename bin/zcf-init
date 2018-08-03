@@ -26,11 +26,11 @@ program
 program.on('--help', function () {
   console.log('  例:')
   console.log()
-  console.log(chalk.gray('    # 使用zcf-vue-admin（基于zcf的单页面后台管理）模板创建一个新项目'))
-  console.log('    zcf init zcf-vue-admin my-project')
+  console.log(chalk.gray('    # 使用elrond-childapp-vue（基于 vue 的前端微服务子应用）模板创建一个新项目'))
+  console.log('    zcf init elrond-childapp-vue my-project')
   console.log()
-  console.log(chalk.gray('    # 使用koa-vue-admin（基于koa的单页面后台管理）模板创建一个新项目'))
-  console.log('    zcf init koa-vue-admin my-project')
+  console.log(chalk.gray('    # 使用zcf-vue-admin（基于 vue 的多页面后台管理）模板创建一个新项目'))
+  console.log('    zcf init zcf-vue-admin my-project')
   console.log()
 })
 

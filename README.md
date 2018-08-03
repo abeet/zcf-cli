@@ -4,7 +4,7 @@
 
 ### 安装
 
-前提: [Node.js](https://nodejs.org/en/) (>=7.x, 推荐 8.x) 和 [Git](https://git-scm.com/).
+前提: [Node.js](https://nodejs.org/en/) (>=8.x) 和 [Git](https://git-scm.com/).
 
 ``` bash
 $ npm install -g zcf-cli
