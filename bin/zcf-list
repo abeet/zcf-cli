@@ -14,16 +14,16 @@ process.on('exit', () => {
  */
 const repos = [
   {
-    name: 'zcf-vue-admin',
-    description:'基于 zcf + vue 的单页面后台管理系统脚手架的模板'
+    name: 'elrond-childapp-vue',
+    description:'基于 vue + element-ui 的前端微服务的子应用脚手架工程'
   },
   {
-    name: 'koa-vue-admin',
-    description:'基于 koajs + vue 的单页面后台管理系统脚手架的模板'
+    name: 'zcf-vue-admin',
+    description:'基于 vue + element-ui 的多页面后台管理系统脚手架工程'
   },
 ]
 
-console.log('  Available official templates:')
+console.log('  可用的模板:')
 console.log()
 repos.forEach(repo => {
   console.log(
