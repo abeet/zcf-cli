@@ -4,7 +4,8 @@
  * Usage.
  */
 var path = require('path')
-var download = require('download-git-repo')
+var fs = require('fs')
+var download = require('../lib/download-git-repo.js')
 var program = require('commander')
 var chalk = require('chalk')
 var inquirer = require('inquirer')
@@ -16,7 +17,6 @@ var exists = require('fs').existsSync
 var generate = require('../lib/generate')
 
 program
-  .usage('<template-name> [project-name]')
   .option('-c, --clone', 'use git clone')
 
 /**
@@ -67,10 +67,10 @@ if (exists(to)) {
   inquirer.prompt({
     type: 'confirm',
     message: inPlace
-        ? '在当前目录生成项目？'
-        : '目标目录已存在，继续？',
+      ? '在当前目录生成项目？'
+      : '目标目录已存在，继续？',
     name: 'ok'
-  }).then(function(answers){
+  }).then(function (answers) {
     if (answers.ok) {
       run(template)
     }
@@ -79,13 +79,36 @@ if (exists(to)) {
   run(template)
 }
 
-function run(template){
-  console.log("template = " + template)
-  var template = "abeet/" + template
+function run (template) {
+  const configPath = path.join(__dirname, 'zcf-config.json')
+  let config = { registry: 'https://github.com/abeet' }
+  if (fs.existsSync(configPath)) {
+    const fileContent = fs.readFileSync(configPath, 'utf-8')
+    if (fileContent.charAt(0) == '{') {
+      const parsedConfig = JSON.parse(fileContent)
+      if (parsedConfig.registry && parsedConfig.registry.indexOf('/') != -1) {
+        config = parsedConfig
+      }
+    }
+  }
+  config.registry = config.registry.replace(/\/$/, '')
+  var regex = /^(https?:\/\/[^/]+)\/(.+)/
+  var match = regex.exec(config.registry)
+  var domain = match[1]
+  var type = 'gitlab'
+  if (domain.includes('github.')) {
+    type = 'github'
+  } else if (domain.includes('bitbucket.')) {
+    type = 'bitbucket'
+  }
+  var pathName = match[2]
+
+  var downloadUrl = type + ':' + domain + ':' + pathName + '/' + template
+  console.log('准备下载模板 ' + config.registry + '/' + template)
   var tmp = os.tmpdir() + '/zcf-template-' + uid()
   var spinner = ora('downloading template')
   spinner.start()
-  download(template, tmp, { clone: clone }, function (err) {
+  download(downloadUrl, tmp, { clone: clone }, function (err) {
     spinner.stop()
     process.on('exit', function () {
       rm(tmp)

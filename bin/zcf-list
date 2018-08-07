@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+var path = require('path')
+var fs = require('fs')
 const chalk = require('chalk')
 
 /**
@@ -8,19 +10,30 @@ const chalk = require('chalk')
 
 process.on('exit', () => {
 })
-
+const configPath = path.join(__dirname, 'zcf-config.json')
+let config = { registry: 'https://github.com/abeet' }
+if (fs.existsSync(configPath)) {
+  const fileContent = fs.readFileSync(configPath, 'utf-8')
+  if (fileContent.charAt(0) === '{') {
+    const parsedConfig = JSON.parse(fileContent)
+    if (parsedConfig.registry && parsedConfig.registry.indexOf('/') !== -1) {
+      config = parsedConfig
+    }
+  }
+}
+console.log('  当前模板下载源: ' + config.registry)
 /**
  * List repos.
  */
 const repos = [
   {
     name: 'elrond-childapp-vue',
-    description:'基于 vue + element-ui 的前端微服务的子应用脚手架工程'
+    description: '基于 vue + element-ui 的前端微服务的子应用脚手架工程'
   },
   {
     name: 'zcf-vue-admin',
-    description:'基于 vue + element-ui 的多页面后台管理系统脚手架工程'
-  },
+    description: '基于 vue + element-ui 的多页面后台管理系统脚手架工程'
+  }
 ]
 
 console.log('  可用的模板:')

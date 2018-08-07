@@ -1,0 +1,66 @@
+var path = require('path')
+var fs = require('fs')
+var program = require('commander')
+const chalk = require('chalk')
+
+program
+  .usage('registry [registry-url]')
+
+/**
+ * Help.
+ */
+
+program.on('--help', function () {
+  console.log('  例:')
+  console.log()
+  console.log(chalk.gray('    # 设置模板下载源为 http://repo.slimcloud.io:5002/boilerplate'))
+  console.log('    zcf set registry http://repo.slimcloud.io:5002/boilerplate')
+  console.log()
+  console.log(chalk.gray('    # 设置模板下载源为 https://github.com/abeet'))
+  console.log('    zcf set registry https://github.com/abeet')
+  console.log()
+  console.log(chalk.gray('    # 设置模板下载源为 默认值（即 https://github.com/abeet）'))
+  console.log('    zcf set registry default')
+  console.log()
+})
+
+/**
+ * Help.
+ */
+
+function help() {
+  program.parse(process.argv)
+  if (program.args[0] && program.args[0] !== 'registry') {
+    console.log('  Error: 不能识别的命令 set ' + program.args[0])
+    return program.help()
+  }
+  if (program.args.length < 2) return program.help()
+}
+help()
+
+/**
+ * Padding.
+ */
+
+console.log()
+process.on('exit', function () {
+  console.log()
+})
+
+/**
+ * Settings.
+ */
+var arg0 = program.args[0]
+var arg1 = program.args[1]
+var cwd = process.cwd()
+var dir = __dirname
+
+if (arg1 === 'default') {
+  arg1 = 'https://github.com/abeet'
+}
+if (arg1.match(/^https?:\/\/.+\/.+/)) {
+  var config = JSON.stringify({ registry: arg1.replace(/\/$/, '') })
+  fs.writeFileSync(path.join(__dirname, 'zcf-config.json'), config)
+} else {
+  console.log('模板下载源必须为gitlab/github/bitbucket仓库的父级路径网址')
+}

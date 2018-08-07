@@ -28,9 +28,9 @@ zcf init zcf-vue-admin my-project
 
 当前可用的模板:
 
-- [zcf-vue-admin](https://github.com/abeet/zcf-vue-admin) - 适合于后台系统的首页应用工程后端框架为 springboot+zving framework，前端为vue2 + Element UI.
+- [zcf-vue-admin](https://github.com/abeet/zcf-vue-admin) -  基于 vue + Element UI 适用于后台系统的多页应用工程
 
-- [koa-vue-admin](https://github.com/abeet/koa-vue-admin) - 适合于后台系统的首页应用工程后端框架为 koa+sequelize，前端为vue2 + Element UI.
+- [elrond-childapp-vue](https://github.com/abeet/elrond-childapp-vue) - 基于 vue + Element UI 的前端微服务子应用工程
 
 ### License
 
