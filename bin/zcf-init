@@ -104,7 +104,7 @@ function run (template) {
   var pathName = match[2]
 
   var downloadUrl = type + ':' + domain + ':' + pathName + '/' + template
-  console.log('准备下载模板 ' + config.registry + '/' + template)
+  console.log('下载模板 ' + config.registry + '/' + template)
   var tmp = os.tmpdir() + '/zcf-template-' + uid()
   var spinner = ora('downloading template')
   spinner.start()
